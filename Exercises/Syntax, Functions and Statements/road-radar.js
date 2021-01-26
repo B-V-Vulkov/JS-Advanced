@@ -1,20 +1,12 @@
 function solve(speed, area) {
-    let limit = 0;
-
-    switch (area) {
-        case 'motorway':
-            limit = 130;
-            break;
-        case 'interstate':
-            limit = 90;
-            break;
-        case 'city':
-            limit = 50;
-            break;
-        case 'residential':
-            limit = 20;
-            break;
+    const areaLimitParser = {
+        motorway() { return 130 },
+        interstate() { return 90 },
+        city() { return 50 },
+        residential() { return 20 },
     }
+
+    const limit = areaLimitParser[area]();
 
     const overLimit = speed - limit;
 
@@ -28,3 +20,5 @@ function solve(speed, area) {
         return `The speed is ${overLimit} km/h faster than the allowed speed of ${limit} - reckless driving`;
     }
 }
+
+console.log(solve(21, 'residential'));
