@@ -1,6 +1,5 @@
 function solve(commands) {
     const arr = [];
-
     const commandParser = {
         add(value) { arr.push(value); },
         remove() { arr.pop(); }
@@ -11,7 +10,6 @@ function solve(commands) {
     }
 
     const result = arr.length != 0 ? arr.join('\n') : 'Empty';
-
     return result;
 }
 
