@@ -4,32 +4,32 @@ function solve(matrix) {
     const colSum = getRowSum(transposedMatrix);
 
     return rowSum.concat(colSum).every((el, _, arr) => el === arr[0]);
-}
 
-function getRowSum(matrix) {
-    const rowSum = [];
-    for (let i = 0; i < matrix.length; i++) {
-        const curRow = matrix[i].reduce((acc, el) => acc + el, 0);
-        rowSum.push(curRow);
-    }
-
-    return rowSum;
-}
-
-function transpose(matrix) {
-    let transposedMatrix = [];
-
-    for (let row = 0; row < matrix.length; row++) {
-        const curRow = [];
-        for (let col = 0; col < matrix.length; col++) {
-
-            curRow.push(matrix[col][row]);
+    function getRowSum(matrix) {
+        const rowSum = [];
+        for (let i = 0; i < matrix.length; i++) {
+            const curRow = matrix[i].reduce((acc, el) => acc + el, 0);
+            rowSum.push(curRow);
         }
 
-        transposedMatrix.push(curRow);
+        return rowSum;
     }
 
-    return transposedMatrix;
+    function transpose(matrix) {
+        let transposedMatrix = [];
+
+        for (let row = 0; row < matrix.length; row++) {
+            const curRow = [];
+            for (let col = 0; col < matrix.length; col++) {
+
+                curRow.push(matrix[col][row]);
+            }
+
+            transposedMatrix.push(curRow);
+        }
+
+        return transposedMatrix;
+    }
 }
 
 console.log(solve([
@@ -43,4 +43,3 @@ console.log(solve([
     [21, 0, 1],
     [21, 1, 1]]
 ));
-
