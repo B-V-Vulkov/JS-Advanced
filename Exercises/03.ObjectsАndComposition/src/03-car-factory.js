@@ -20,10 +20,9 @@ function solve(requirements) {
     }
 
     function getWheels(size) {
-        size = Math.floor(size);
-        if (size % 2 === 0) {
-            size -= 1;
-        }
+        size = Math.floor(size) % 2 == 0
+            ? Math.floor(size) - 1
+            : Math.floor(size);
 
         return Array(4).fill(size);
     }
